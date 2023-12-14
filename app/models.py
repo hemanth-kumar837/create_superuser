@@ -10,9 +10,11 @@ class Topic(models.Model):
 class Webpage(models.Model):
     topic_name=models.ForeignKey(Topic,on_delete=models.CASCADE)
     name=models.CharField(max_length=50)
-    url=models.URLField()
+    url=models.URLField(default='http://default.in')
+    email=models.CharField(max_length=50,default='default@gmail.com')
     def __str__(self):
         return self.name
+
 class AccessRecord(models.Model):
     name=models.ForeignKey(Webpage,on_delete=models.CASCADE)
     date=models.DateField()
