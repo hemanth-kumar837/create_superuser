@@ -9,7 +9,7 @@ def display_topic(request):
     QSTO=Topic.objects.all().order_by('-topic_name')
     QSTO=Topic.objects.all().order_by(Length('topic_name'))
     QSTO=Topic.objects.all().order_by(Length('topic_name').desc())
-
+    
     d={'topic':QSTO}
     return render(request,'display_topic.html',d)
 
